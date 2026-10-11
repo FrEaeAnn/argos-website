@@ -1,0 +1,2608 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>АРГОС — Лидер нефтесервисных и строительных услуг</title>
+<meta name="description" content="Полный спектр работ для нефтегазовой отрасли России: от бурения скважин до строительства инфраструктуры с 1978 года.">
+<style>
+  :root {
+    --bg: #F8FAFC;
+    --bg-soft: #EEF4FB;
+    --white: #FFFFFF;
+    --navy: #0A2540;
+    --navy-2: #1E3A8A;
+    --text: #0A2540;
+    --muted: #4A5D78;
+    --blue: #0066FF;
+    --blue-light: #0099FF;
+    --blue-dark: #0052CC;
+    --border: rgba(0, 102, 255, 0.18);
+    --border-soft: rgba(10, 37, 64, 0.08);
+    --shadow: 0 10px 30px -12px rgba(10, 37, 64, 0.18);
+    --shadow-hover: 0 20px 40px -14px rgba(0, 102, 255, 0.35);
+    --card-shadow: 0 12px 32px -14px rgba(10, 37, 64, 0.22), 0 2px 6px rgba(10, 37, 64, 0.04);
+    --card-shadow-hover: 0 26px 48px -18px rgba(0, 102, 255, 0.45), 0 4px 10px rgba(0, 102, 255, 0.08);
+    --radius: 14px;
+    --container: 1240px;
+    --header-h: 76px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  .container {
+    width: 100%;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- HERO WRAPPER ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background:
+      radial-gradient(900px 520px at 88% 8%, rgba(0, 153, 255, 0.16), transparent 62%),
+      radial-gradient(1000px 650px at 5% 105%, rgba(0, 102, 255, 0.10), transparent 62%),
+      linear-gradient(180deg, #FFFFFF 0%, var(--bg) 55%, var(--bg-soft) 100%);
+  }
+  /* тонкая инженерная сетка */
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0, 102, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 102, 255, 0.06) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse at 72% 28%, #000 0%, transparent 70%);
+            mask-image: radial-gradient(ellipse at 72% 28%, #000 0%, transparent 70%);
+    pointer-events: none;
+  }
+  /* диагональный акцент справа */
+  .hero::after {
+    content: "";
+    position: absolute;
+    top: 0; right: 0;
+    width: 38%;
+    height: 100%;
+    background: linear-gradient(115deg, transparent 49.8%, rgba(0, 102, 255, 0.07) 50%, transparent 80%);
+    pointer-events: none;
+  }
+  .hero > * { position: relative; z-index: 1; }
+
+  /* ---------- HEADER ---------- */
+  .header {
+    height: var(--header-h);
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border-soft);
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  /* Текстовый логотип */
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+  }
+  .logo-text {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, var(--blue-dark), var(--blue) 55%, var(--blue-light));
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+            color: transparent;
+  }
+  .logo-text::after {
+    content: "";
+    display: block;
+    height: 3px;
+    margin-top: 5px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--blue-light) 60%, transparent);
+  }
+  /* Векторный логотип */
+  .logo { gap: 12px; transition: opacity .2s; }
+  .logo:hover { opacity: .88; }
+  .logo-icon { width: 44px; height: 44px; flex: none; display: block; }
+  .logo-icon * { transition: stroke .2s, fill .2s; }
+
+  .nav { display: flex; align-items: center; gap: 6px; }
+  .nav a {
+    position: relative;
+    padding: 10px 14px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--muted);
+    border-radius: 8px;
+    transition: color .2s, background .2s;
+  }
+  .nav a:hover { color: var(--blue); background: rgba(0, 102, 255, 0.06); }
+  .nav a::after {
+    content: "";
+    position: absolute;
+    left: 14px; right: 14px; bottom: 4px;
+    height: 2px;
+    background: var(--blue);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .25s ease;
+  }
+  .nav a:hover::after { transform: scaleX(1); }
+
+  .header-actions { display: flex; align-items: center; gap: 12px; }
+
+  /* ---------- BUTTONS ---------- */
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 28px;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform .15s, box-shadow .25s, background .25s, border-color .25s, color .25s;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn:focus-visible, .nav a:focus-visible, .burger:focus-visible + .burger-label {
+    outline: 2px solid var(--blue-light);
+    outline-offset: 3px;
+  }
+
+  .btn-primary {
+    color: #fff;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+    box-shadow: 0 10px 24px -10px rgba(0, 102, 255, 0.6);
+  }
+  /* плавный перелив градиента + свечение при наведении */
+  .btn-primary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue) 100%);
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+  .btn-primary > * , .btn-primary { z-index: 0; }
+  .btn-primary span, .btn-primary svg { position: relative; z-index: 1; }
+  .btn-primary:hover {
+    box-shadow: 0 0 0 4px rgba(0, 153, 255, 0.18), 0 16px 34px -8px rgba(0, 153, 255, 0.65);
+  }
+  .btn-primary:hover::before { opacity: 1; }
+
+  .btn-secondary {
+    color: var(--blue);
+    background: var(--white);
+    border-color: var(--border);
+  }
+  .btn-secondary:hover {
+    border-color: var(--blue);
+    background: rgba(0, 102, 255, 0.05);
+    box-shadow: 0 10px 24px -12px rgba(0, 102, 255, 0.4);
+  }
+  .btn-sm { padding: 11px 22px; font-size: 15px; }
+  .btn svg { width: 18px; height: 18px; transition: transform .2s; }
+  .btn:hover svg { transform: translateX(3px); }
+
+  /* бургер (без JS) */
+  .burger { position: absolute; opacity: 0; pointer-events: none; }
+  .burger-label {
+    display: none;
+    width: 44px; height: 44px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--white);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .burger-label span {
+    display: block;
+    width: 20px; height: 2px;
+    background: var(--blue);
+    border-radius: 2px;
+    transition: transform .25s, opacity .2s;
+  }
+
+  /* ---------- HERO CONTENT ---------- */
+  .hero-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 64px 0 48px;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 14px;
+    margin-bottom: 28px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--blue);
+    background: rgba(0, 102, 255, 0.07);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+  }
+  .eyebrow i {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--blue);
+    box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.18);
+  }
+
+  h1 {
+    margin: 0 0 24px;
+    max-width: 900px;
+    font-size: clamp(36px, 6.2vw, 76px);
+    line-height: 1.04;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+  }
+  h1 em {
+    font-style: normal;
+    background: linear-gradient(90deg, var(--blue), var(--blue-light));
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+            color: transparent;
+  }
+  .lead {
+    margin: 0 0 40px;
+    max-width: 680px;
+    font-size: clamp(16px, 1.7vw, 20px);
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .cta { display: flex; flex-wrap: wrap; gap: 16px; }
+
+  /* ---------- STATS ---------- */
+  .stats { padding-bottom: 40px; }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .stat {
+    position: relative;
+    padding: 24px 24px 22px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform .25s, box-shadow .25s, border-color .25s;
+  }
+  .stat::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--blue-light) 60%, transparent);
+  }
+  .stat:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 102, 255, 0.45);
+    box-shadow: var(--shadow-hover);
+  }
+  .stat-value {
+    font-size: clamp(28px, 3.4vw, 42px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    color: var(--blue);
+  }
+  .stat-label {
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--muted);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 1024px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .nav a { padding: 10px 10px; }
+  }
+
+  @media (max-width: 860px) {
+    .burger-label { display: inline-flex; }
+    .header-actions .btn { display: none; }
+
+    .nav {
+      position: absolute;
+      top: var(--header-h);
+      left: 0; right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 12px 24px 24px;
+      background: rgba(255, 255, 255, 0.98);
+      border-bottom: 1px solid var(--border-soft);
+      box-shadow: 0 30px 40px -24px rgba(10, 37, 64, 0.25);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: opacity .2s, transform .2s, visibility .2s;
+    }
+    .nav a {
+      padding: 16px 4px;
+      font-size: 17px;
+      border-bottom: 1px solid var(--border-soft);
+      border-radius: 0;
+    }
+    .nav a:hover { background: transparent; }
+    .nav a::after { display: none; }
+    .nav .nav-cta { display: flex; margin-top: 18px; padding: 16px; border: 0; color: #fff; }
+    .nav .nav-cta:hover { color: #fff; background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%); }
+
+    .burger:checked ~ .nav { opacity: 1; visibility: visible; transform: none; }
+    .burger:checked + .burger-label span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger:checked + .burger-label span:nth-child(2) { opacity: 0; }
+    .burger:checked + .burger-label span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .hero::after { display: none; }
+  }
+
+  @media (min-width: 861px) {
+    .nav .nav-cta { display: none; }
+  }
+
+  @media (max-width: 560px) {
+    :root { --header-h: 68px; }
+    .container { padding: 0 18px; }
+    .logo { gap: 10px; }
+    .logo-icon { width: 38px; height: 38px; }
+    .logo-text { font-size: 24px; }
+    .hero-main { padding: 40px 0 32px; }
+    .cta .btn { width: 100%; }
+    .stats-grid { gap: 12px; }
+    .stat { padding: 18px 16px 16px; }
+    .stat-label { font-size: 13px; }
+    .nav { padding: 8px 18px 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; scroll-behavior: auto !important; }
+  }
+
+  /* ============================================================
+     SERVICES
+     ============================================================ */
+  /* ---------- SECTION ---------- */
+  .services {
+    position: relative;
+    padding: 112px 0 120px;
+    overflow: hidden;
+    background:
+      radial-gradient(800px 420px at 95% 0%, rgba(0, 153, 255, 0.10), transparent 62%),
+      radial-gradient(800px 500px at 0% 100%, rgba(0, 102, 255, 0.07), transparent 62%),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+  }
+  .services::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0, 102, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 102, 255, 0.045) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 65%);
+            mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .services > .container { position: relative; z-index: 1; }
+
+  /* ---------- HEADING ---------- */
+  .section-head {
+    max-width: 760px;
+    margin: 0 auto 64px;
+    text-align: center;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 14px;
+    margin-bottom: 22px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue);
+    background: rgba(0, 102, 255, 0.07);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+  }
+  .badge i {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--blue);
+    box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.18);
+  }
+  .section-head h2 {
+    margin: 0 0 18px;
+    font-size: clamp(30px, 4.6vw, 52px);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+  }
+  .section-head h2 em {
+    font-style: normal;
+    background: linear-gradient(90deg, var(--blue), var(--blue-light));
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+            color: transparent;
+  }
+  .section-head p {
+    margin: 0;
+    font-size: clamp(16px, 1.6vw, 19px);
+    line-height: 1.65;
+    color: var(--muted);
+  }
+
+  /* ---------- GRID ---------- */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 36px 36px 30px;
+    background: #FFFFFF;
+    border: 1.5px solid var(--border-soft);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    transition: transform .3s cubic-bezier(.2, .8, .2, 1), border-color .3s, box-shadow .3s;
+  }
+  .card:hover,
+  .card:focus-within {
+    transform: translateY(-6px);
+    border-color: #0066FF;
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  .card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 26px;
+    border-radius: 50%;
+    color: var(--blue);
+    background: rgba(0, 102, 255, 0.09);
+    border: 1px solid var(--border);
+    transition: background .3s, color .3s, box-shadow .3s, transform .3s;
+  }
+  .card-icon svg { width: 30px; height: 30px; }
+  .card:hover .card-icon,
+  .card:focus-within .card-icon {
+    color: #fff;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+    border-color: transparent;
+    box-shadow: 0 10px 22px -8px rgba(0, 102, 255, 0.6);
+  }
+
+  .card h3 {
+    margin: 0 0 12px;
+    font-size: clamp(21px, 2vw, 25px);
+    line-height: 1.25;
+    font-weight: 750;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+  }
+  .card p {
+    margin: 0 0 24px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 28px;
+    padding: 0;
+    list-style: none;
+  }
+  .tags li {
+    padding: 7px 13px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--blue-dark);
+    background: rgba(0, 102, 255, 0.07);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: background .25s, border-color .25s;
+  }
+  .card:hover .tags li { background: rgba(0, 102, 255, 0.11); border-color: rgba(0, 102, 255, 0.35); }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-soft);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--blue);
+  }
+  /* вся карточка кликабельна */
+  .card-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+  }
+  .card-link .arrow { display: inline-block; transition: transform .25s; }
+  .card:hover .card-link .arrow { transform: translateX(6px); }
+  .card-link:focus-visible { outline: none; }
+  .card:focus-within { outline: 2px solid var(--blue-light); outline-offset: 3px; }
+
+  /* ---------- MODAL ---------- */
+  .modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: rgba(10, 37, 64, 0.55);
+    -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, visibility .3s;
+  }
+  .modal.is-open { opacity: 1; visibility: visible; }
+
+  .modal-dialog {
+    position: relative;
+    width: 100%;
+    max-width: 680px;
+    max-height: calc(100vh - 48px);
+    max-height: calc(100dvh - 48px);
+    overflow-y: auto;
+    padding: 44px 44px 36px;
+    background: #FFFFFF;
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 40px 80px -24px rgba(10, 37, 64, 0.55), 0 0 0 6px rgba(0, 102, 255, 0.06);
+    transform: translateY(28px) scale(.96);
+    opacity: 0;
+    transition: transform .35s cubic-bezier(.2, .8, .2, 1), opacity .3s ease;
+  }
+  .modal.is-open .modal-dialog { transform: none; opacity: 1; }
+
+  .modal-dialog::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; right: 0;
+    height: 4px;
+    border-radius: 20px 20px 0 0;
+    background: linear-gradient(90deg, var(--blue), var(--blue-light) 65%, transparent);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 18px; right: 18px;
+    width: 42px; height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: inherit;
+    font-size: 18px;
+    line-height: 1;
+    color: var(--muted);
+    background: var(--bg);
+    border: 1px solid var(--border-soft);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: color .2s, background .2s, border-color .2s, transform .25s;
+  }
+  .modal-close:hover {
+    color: #fff;
+    background: var(--blue);
+    border-color: var(--blue);
+    transform: rotate(90deg);
+  }
+  .modal-close:focus-visible, .modal-cta:focus-visible {
+    outline: 2px solid var(--blue-light);
+    outline-offset: 3px;
+  }
+
+  .modal-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px; height: 64px;
+    margin-bottom: 22px;
+    border-radius: 50%;
+    color: #fff;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+    box-shadow: 0 10px 22px -8px rgba(0, 102, 255, 0.6);
+  }
+  .modal-icon svg { width: 30px; height: 30px; }
+
+  .modal-title {
+    margin: 0 48px 14px 0;
+    font-size: clamp(22px, 3.2vw, 30px);
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    color: var(--navy);
+  }
+  .modal-lead {
+    margin: 0 0 26px;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+  .modal-subtitle {
+    margin: 0 0 12px;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+  .modal-works {
+    display: grid;
+    gap: 10px;
+    margin: 0 0 28px;
+    padding: 0;
+    list-style: none;
+  }
+  .modal-works li {
+    position: relative;
+    padding-left: 30px;
+    font-size: 15.5px;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .modal-works li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 2px;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: rgba(0, 102, 255, 0.1) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%230066FF' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5.5 10.5 3 3 6-6.5'/%3E%3C/svg%3E") center / 14px no-repeat;
+  }
+  .modal .tags { margin-bottom: 32px; }
+
+  .modal-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-soft);
+  }
+  .modal-cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1;
+    color: #fff;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 24px -10px rgba(0, 102, 255, 0.6);
+    transition: box-shadow .25s, transform .15s;
+  }
+  .modal-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue) 100%);
+    opacity: 0;
+    transition: opacity .3s;
+  }
+  .modal-cta span { position: relative; z-index: 1; }
+  .modal-cta:hover { box-shadow: 0 0 0 4px rgba(0, 153, 255, 0.18), 0 16px 34px -8px rgba(0, 153, 255, 0.65); }
+  .modal-cta:hover::before { opacity: 1; }
+  .modal-cta:active { transform: translateY(1px); }
+  .modal-note { font-size: 14px; color: var(--muted); }
+
+  body.modal-open { overflow: hidden; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 1024px) {
+    .services { padding: 88px 0 96px; }
+    .card { padding: 30px 28px 26px; }
+    .cards { gap: 22px; }
+  }
+
+  @media (max-width: 760px) {
+    .cards { grid-template-columns: 1fr; gap: 18px; }
+    .section-head { margin-bottom: 44px; }
+  }
+
+  @media (max-width: 560px) {
+    .container { padding: 0 18px; }
+    .services { padding: 64px 0 72px; }
+    .card { padding: 26px 22px 22px; }
+    .card-icon { width: 56px; height: 56px; margin-bottom: 20px; }
+    .card-icon svg { width: 26px; height: 26px; }
+    .card p { font-size: 15px; }
+  }
+
+  @media (max-width: 560px) {
+    .modal { padding: 12px; align-items: end; }
+    .modal-dialog {
+      padding: 32px 22px 24px;
+      max-height: calc(100dvh - 24px);
+      border-radius: 18px;
+    }
+    .modal-close { top: 14px; right: 14px; }
+    .modal-icon { width: 56px; height: 56px; margin-bottom: 18px; }
+    .modal-cta { width: 100%; }
+  }
+
+  @media (hover: none) {
+    .card:hover { transform: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; scroll-behavior: auto !important; }
+  }
+
+  /* ============================================================
+     GEOGRAPHY
+     ============================================================ */
+  .geography {
+    position: relative;
+    padding: 112px 0 120px;
+    overflow: hidden;
+    background:
+      radial-gradient(800px 460px at 0% 0%, rgba(0, 153, 255, 0.10), transparent 62%),
+      radial-gradient(800px 500px at 100% 100%, rgba(0, 102, 255, 0.08), transparent 62%),
+      linear-gradient(180deg, var(--bg-soft) 0%, #FFFFFF 100%);
+  }
+  .geography::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0, 102, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 102, 255, 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 65%);
+            mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .geography > .container { position: relative; z-index: 1; }
+
+  .geo-layout {
+    display: grid;
+    grid-template-columns: minmax(300px, 380px) 1fr;
+    gap: 28px;
+    align-items: stretch;
+  }
+
+  /* ---------- Вкладки регионов ---------- */
+  .geo-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .geo-tab {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 16px 20px;
+    font: inherit;
+    text-align: left;
+    color: var(--navy);
+    background: #FFFFFF;
+    border: 1.5px solid var(--border-soft);
+    border-radius: 14px;
+    box-shadow: var(--card-shadow);
+    cursor: pointer;
+    transition: transform .25s, border-color .25s, box-shadow .25s, background .25s, color .25s;
+  }
+  .geo-tab:hover {
+    border-color: #0066FF;
+    transform: translateX(4px);
+    box-shadow: var(--card-shadow-hover);
+  }
+  .geo-tab:focus-visible {
+    outline: 2px solid var(--blue-light);
+    outline-offset: 3px;
+  }
+  .geo-pin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    color: var(--blue);
+    background: rgba(0, 102, 255, 0.09);
+    border: 1px solid var(--border);
+    transition: background .25s, color .25s, border-color .25s;
+  }
+  .geo-pin svg { width: 24px; height: 24px; }
+  .geo-tab-name {
+    display: block;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+  .geo-tab-meta {
+    display: block;
+    margin-top: 4px;
+    font-size: 13.5px;
+    color: var(--muted);
+    transition: color .25s;
+  }
+  .geo-tab:hover .geo-pin {
+    background: rgba(0, 102, 255, 0.16);
+  }
+  .geo-tab[aria-selected="true"] {
+    color: #fff;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+    border-color: transparent;
+    box-shadow: 0 18px 36px -14px rgba(0, 102, 255, 0.65);
+  }
+  .geo-tab[aria-selected="true"] .geo-pin {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.35);
+  }
+  .geo-tab[aria-selected="true"] .geo-tab-meta { color: rgba(255, 255, 255, 0.85); }
+
+  /* ---------- Панель региона ---------- */
+  .geo-panel {
+    position: relative;
+    padding: 44px 44px 40px;
+    overflow: hidden;
+    background: #FFFFFF;
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+  }
+  .geo-panel[hidden] { display: none; }
+  .geo-panel:not([hidden]) { animation: geoIn .4s cubic-bezier(.2, .8, .2, 1); }
+  @keyframes geoIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .geo-panel::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue), var(--blue-light) 65%, transparent);
+  }
+  /* водяной знак-локация */
+  .geo-panel::after {
+    content: "";
+    position: absolute;
+    right: -30px; bottom: -40px;
+    width: 280px; height: 280px;
+    opacity: .07;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230066FF' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 21s-7-6.2-7-11.5a7 7 0 1 1 14 0C19 14.8 12 21 12 21Z'/%3E%3Ccircle cx='12' cy='9.5' r='2.6'/%3E%3C/svg%3E") center / contain no-repeat;
+    pointer-events: none;
+  }
+  .geo-panel > * { position: relative; z-index: 1; }
+
+  .geo-eyebrow {
+    margin: 0 0 10px;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+  .geo-panel h3 {
+    margin: 0 0 12px;
+    font-size: clamp(26px, 3.6vw, 40px);
+    line-height: 1.12;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+  }
+  .geo-lead {
+    max-width: 560px;
+    margin: 0 0 30px;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+  .geo-block { margin-bottom: 28px; }
+  .geo-block:last-child { margin-bottom: 0; }
+  .geo-block h4 {
+    margin: 0 0 12px;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .geo-places {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .geo-places li {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px 10px 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    transition: border-color .2s, background .2s, transform .2s;
+  }
+  .geo-places li::before {
+    content: "";
+    width: 18px; height: 18px;
+    flex: none;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230066FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 21s-7-6.2-7-11.5a7 7 0 1 1 14 0C19 14.8 12 21 12 21Z'/%3E%3Ccircle cx='12' cy='9.5' r='2.4'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+  .geo-places li:hover {
+    border-color: #0066FF;
+    background: rgba(0, 102, 255, 0.06);
+    transform: translateY(-2px);
+  }
+  .geo-panel .tags { margin-bottom: 0; }
+
+  /* ---------- Итоговая плашка ---------- */
+  .geo-summary {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    gap: 40px;
+    margin-top: 28px;
+    padding: 32px 40px;
+    overflow: hidden;
+    color: #fff;
+    background: linear-gradient(135deg, #0A2540 0%, #1E3A8A 100%);
+    border-radius: 20px;
+    box-shadow: 0 26px 50px -22px rgba(10, 37, 64, 0.65);
+  }
+  .geo-summary::before {
+    content: "";
+    position: absolute;
+    right: -80px; top: -120px;
+    width: 340px; height: 340px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 153, 255, 0.45), transparent 70%);
+    pointer-events: none;
+  }
+  .geo-summary > * { position: relative; z-index: 1; }
+  .geo-stat-value {
+    display: block;
+    font-size: clamp(34px, 4vw, 48px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .geo-stat-label {
+    display: block;
+    max-width: 150px;
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.75);
+  }
+  .geo-regions-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .geo-regions-list li {
+    padding: 9px 16px;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+    transition: background .2s, border-color .2s;
+  }
+  .geo-regions-list li:hover {
+    background: rgba(0, 153, 255, 0.35);
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* ---------- Geography responsive ---------- */
+  @media (max-width: 1024px) {
+    .geography { padding: 88px 0 96px; }
+    .geo-panel { padding: 36px 30px 32px; }
+    .geo-summary { grid-template-columns: auto auto; padding: 28px 30px; }
+    .geo-regions-list { grid-column: 1 / -1; justify-content: flex-start; }
+  }
+
+  @media (max-width: 900px) {
+    .geo-layout { grid-template-columns: 1fr; gap: 18px; }
+    /* вкладки превращаются в горизонтальную ленту */
+    .geo-tabs {
+      flex-direction: row;
+      gap: 10px;
+      margin: 0 -18px;
+      padding: 6px 18px 14px;
+      overflow-x: auto;
+      scroll-snap-type: x proximity;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .geo-tabs::-webkit-scrollbar { display: none; }
+    .geo-tab {
+      flex: 0 0 auto;
+      width: auto;
+      min-width: 240px;
+      scroll-snap-align: start;
+    }
+    .geo-tab:hover { transform: translateY(-3px); }
+  }
+
+  @media (max-width: 560px) {
+    .geography { padding: 64px 0 72px; }
+    .geo-tab { min-width: 215px; padding: 14px 16px; grid-template-columns: 42px 1fr; gap: 12px; }
+    .geo-pin { width: 42px; height: 42px; }
+    .geo-panel { padding: 30px 20px 26px; border-radius: 18px; }
+    .geo-panel::after { width: 200px; height: 200px; right: -40px; bottom: -40px; }
+    .geo-places li { font-size: 15px; padding: 9px 14px 9px 10px; }
+    .geo-summary { grid-template-columns: 1fr 1fr; gap: 22px 16px; padding: 24px 20px; border-radius: 18px; }
+    .geo-stat-label { font-size: 13px; }
+  }
+
+  @media (hover: none) {
+    .geo-tab:hover { transform: none; }
+  }
+
+  /* ============================================================
+     CAREERS
+     ============================================================ */
+  .careers {
+    position: relative;
+    padding: 112px 0 120px;
+    overflow: hidden;
+    background:
+      radial-gradient(760px 420px at 100% 0%, rgba(0, 153, 255, 0.12), transparent 62%),
+      radial-gradient(760px 480px at 0% 100%, rgba(0, 102, 255, 0.09), transparent 62%),
+      linear-gradient(180deg, #FFFFFF 0%, #F0F4F9 160px, #E8EFF8 100%);
+  }
+  .careers::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0, 102, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 102, 255, 0.045) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse at 50% 100%, #000 0%, transparent 65%);
+            mask-image: radial-gradient(ellipse at 50% 100%, #000 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .careers > .container { position: relative; z-index: 1; }
+
+  .careers-layout {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  /* ---------- Преимущества ---------- */
+  .benefits {
+    display: grid;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .benefit {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 20px;
+    align-items: start;
+    padding: 24px 26px;
+    background: #FFFFFF;
+    border: 1.5px solid var(--border-soft);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    transition: transform .3s cubic-bezier(.2, .8, .2, 1), border-color .3s, box-shadow .3s;
+  }
+  .benefit:hover {
+    transform: translateY(-4px);
+    border-color: #0066FF;
+    box-shadow: var(--card-shadow-hover);
+  }
+  .benefit-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    color: var(--blue);
+    background: rgba(0, 102, 255, 0.09);
+    border: 1px solid var(--border);
+    transition: background .3s, color .3s, box-shadow .3s;
+  }
+  .benefit-icon svg { width: 26px; height: 26px; }
+  .benefit:hover .benefit-icon {
+    color: #fff;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+    border-color: transparent;
+    box-shadow: 0 10px 22px -8px rgba(0, 102, 255, 0.6);
+  }
+  .benefit h3 {
+    margin: 2px 0 6px;
+    font-size: 18.5px;
+    line-height: 1.3;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    color: var(--navy);
+  }
+  .benefit p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+
+  /* ---------- Форма отклика ---------- */
+  .career-card {
+    position: sticky;
+    top: 24px;
+    padding: 40px 40px 34px;
+    background: #FFFFFF;
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 30px 60px -28px rgba(10, 37, 64, 0.35), 0 4px 12px rgba(10, 37, 64, 0.05);
+    overflow: hidden;
+  }
+  .career-card::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue), var(--blue-light) 65%, transparent);
+  }
+  .career-card h3 {
+    margin: 0 0 8px;
+    font-size: clamp(22px, 2.6vw, 28px);
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    color: var(--navy);
+  }
+  .career-card .form-lead {
+    margin: 0 0 28px;
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+
+  .field { margin-bottom: 18px; }
+  .field label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .field input,
+  .field select {
+    display: block;
+    width: 100%;
+    height: 54px;
+    padding: 0 16px;
+    font: inherit;
+    font-size: 16px;
+    color: var(--navy);
+    background: var(--bg);
+    border: 1.5px solid rgba(10, 37, 64, 0.14);
+    border-radius: 10px;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s, background .2s;
+  }
+  .field input::placeholder { color: #8A99B0; }
+  .field input:hover,
+  .field select:hover { border-color: rgba(0, 102, 255, 0.45); }
+  .field input:focus,
+  .field select:focus {
+    background: #FFFFFF;
+    border-color: #0066FF;
+    box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.14);
+  }
+  .field select {
+    padding-right: 46px;
+    cursor: pointer;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%230066FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 8 5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 20px;
+  }
+  .field select:invalid { color: #8A99B0; }
+  .field select option { color: var(--navy); }
+
+  .field-error {
+    display: none;
+    margin-top: 6px;
+    font-size: 13px;
+    color: #D6364B;
+  }
+  .field.has-error input,
+  .field.has-error select {
+    border-color: #D6364B;
+    box-shadow: 0 0 0 4px rgba(214, 54, 75, 0.10);
+  }
+  .field.has-error .field-error { display: block; }
+
+  .form-submit { width: 100%; margin-top: 8px; padding: 17px 28px; }
+  .form-submit[disabled] { opacity: .7; cursor: progress; }
+
+  .form-consent {
+    margin: 16px 0 0;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--muted);
+    text-align: center;
+  }
+  .form-consent a {
+    color: var(--blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .form-consent a:hover { color: var(--blue-dark); }
+
+  /* состояние «успешно отправлено» */
+  .form-success { display: none; text-align: center; padding: 18px 0 8px; }
+  .career-card.is-sent .form-wrap { display: none; }
+  .career-card.is-sent .form-success { display: block; animation: careerIn .4s cubic-bezier(.2, .8, .2, 1); }
+  @keyframes careerIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .success-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 76px; height: 76px;
+    margin: 0 auto 22px;
+    border-radius: 50%;
+    color: #fff;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+    box-shadow: 0 14px 30px -10px rgba(0, 102, 255, 0.65);
+  }
+  .success-icon svg { width: 36px; height: 36px; }
+  .form-success p { margin: 0 0 24px; font-size: 16px; line-height: 1.6; color: var(--muted); }
+
+  /* ---------- Careers responsive ---------- */
+  @media (max-width: 1024px) {
+    .careers { padding: 88px 0 96px; }
+    .careers-layout { gap: 32px; }
+    .career-card { padding: 34px 30px 30px; }
+  }
+
+  @media (max-width: 900px) {
+    .careers-layout { grid-template-columns: 1fr; }
+    .career-card { position: static; }
+  }
+
+  @media (max-width: 560px) {
+    .careers { padding: 64px 0 72px; }
+    .benefit { grid-template-columns: 46px 1fr; gap: 14px; padding: 18px 18px; }
+    .benefit-icon { width: 46px; height: 46px; }
+    .benefit-icon svg { width: 22px; height: 22px; }
+    .benefit h3 { font-size: 17px; }
+    .career-card { padding: 28px 20px 24px; border-radius: 18px; }
+  }
+
+  @media (hover: none) {
+    .benefit:hover { transform: none; }
+  }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  .footer {
+    position: relative;
+    padding: 88px 0 0;
+    overflow: hidden;
+    color: #FFFFFF;
+    background:
+      radial-gradient(700px 420px at 100% 0%, rgba(0, 153, 255, 0.20), transparent 62%),
+      radial-gradient(620px 420px at 0% 100%, rgba(0, 102, 255, 0.16), transparent 62%),
+      #0A2540;
+  }
+  .footer::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--blue-light) 55%, transparent);
+  }
+  .footer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse at 80% 0%, #000 0%, transparent 60%);
+            mask-image: radial-gradient(ellipse at 80% 0%, #000 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .footer > .container { position: relative; z-index: 1; }
+  .footer a:focus-visible {
+    outline: 2px solid #4DB8FF;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.8fr 1.15fr 1.2fr;
+    gap: 48px;
+    padding-bottom: 64px;
+  }
+  .footer h4 {
+    margin: 0 0 22px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7CC4FF;
+  }
+
+  /* колонка 1 — о компании */
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    transition: opacity .2s;
+  }
+  .footer-logo:hover { opacity: .88; }
+  .footer-logo svg { width: 44px; height: 44px; flex: none; display: block; }
+  .footer-logo-text {
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+  }
+  .footer-logo-text::after {
+    content: "";
+    display: block;
+    height: 3px;
+    margin-top: 5px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #4DB8FF, var(--blue-light) 60%, transparent);
+  }
+  .footer-about p {
+    max-width: 330px;
+    margin: 0 0 26px;
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.72);
+  }
+  .footer-social {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 18px 10px 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    transition: background .25s, border-color .25s, transform .2s, box-shadow .25s;
+  }
+  .footer-social svg { width: 30px; height: 30px; flex: none; }
+  .footer-social:hover {
+    background: rgba(0, 153, 255, 0.28);
+    border-color: rgba(124, 196, 255, 0.7);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px -12px rgba(0, 153, 255, 0.7);
+  }
+
+  /* колонка 2 — навигация */
+  .footer-links {
+    display: grid;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .footer-links a {
+    position: relative;
+    display: inline-block;
+    padding: 7px 0 7px 0;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.78);
+    transition: color .2s, padding-left .25s;
+  }
+  .footer-links a::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 50%;
+    width: 6px; height: 6px;
+    margin-top: -3px;
+    border-radius: 50%;
+    background: var(--blue-light);
+    opacity: 0;
+    transform: scale(.4);
+    transition: opacity .2s, transform .25s;
+  }
+  .footer-links a:hover { color: #FFFFFF; padding-left: 16px; }
+  .footer-links a:hover::before { opacity: 1; transform: none; }
+
+  /* колонка 3 — контакты */
+  .footer address { margin: 0; font-style: normal; }
+  .contact-list {
+    display: grid;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .contact-list li {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    gap: 14px;
+    align-items: center;
+  }
+  .contact-ico {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    color: #7CC4FF;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  }
+  .contact-ico svg { width: 18px; height: 18px; }
+  .contact-label {
+    display: block;
+    font-size: 12.5px;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.55);
+  }
+  .contact-value {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #FFFFFF;
+  }
+  .contact-list a.contact-value { transition: color .2s; }
+  .contact-list a.contact-value:hover { color: #7CC4FF; }
+
+  /* колонка 4 — журнал */
+  .magazine {
+    padding: 22px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.04));
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    box-shadow: 0 24px 44px -26px rgba(0, 0, 0, 0.6);
+    transition: transform .3s cubic-bezier(.2, .8, .2, 1), border-color .3s, box-shadow .3s;
+  }
+  .magazine:hover {
+    transform: translateY(-4px);
+    border-color: rgba(124, 196, 255, 0.65);
+    box-shadow: 0 28px 50px -24px rgba(0, 153, 255, 0.55);
+  }
+  .magazine-top {
+    display: grid;
+    grid-template-columns: 68px 1fr;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .magazine-cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 68px; height: 88px;
+    padding: 9px 8px;
+    border-radius: 6px 10px 10px 6px;
+    background: linear-gradient(160deg, var(--blue-light) 0%, var(--blue) 55%, #1E3A8A 100%);
+    box-shadow: 0 14px 24px -10px rgba(0, 102, 255, 0.8), inset 3px 0 0 rgba(255, 255, 255, 0.28);
+  }
+  .magazine-cover span:first-child {
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .magazine-cover span:last-child {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1;
+    color: #FFFFFF;
+  }
+  .magazine-tag {
+    display: inline-block;
+    margin-bottom: 6px;
+    padding: 4px 10px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #0A2540;
+    background: #7CC4FF;
+    border-radius: 999px;
+  }
+  .magazine h5 {
+    margin: 0;
+    font-size: 19px;
+    line-height: 1.25;
+    font-weight: 800;
+    color: #FFFFFF;
+  }
+  .magazine p {
+    margin: 0 0 18px;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.72);
+  }
+  .magazine-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15.5px;
+    font-weight: 700;
+    color: #7CC4FF;
+    transition: color .2s;
+  }
+  .magazine-link .arrow { display: inline-block; transition: transform .25s; }
+  .magazine-link:hover { color: #FFFFFF; }
+  .magazine-link:hover .arrow { transform: translateX(6px); }
+
+  /* нижняя линия */
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px 32px;
+    padding: 26px 0 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+  }
+  .footer-copy {
+    margin: 0;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .footer-legal a {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.72);
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.3);
+    text-underline-offset: 3px;
+    transition: color .2s, text-decoration-color .2s;
+  }
+  .footer-legal a:hover { color: #FFFFFF; text-decoration-color: #7CC4FF; }
+
+  /* ---------- Footer responsive ---------- */
+  @media (max-width: 1100px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 44px 40px; }
+  }
+
+  @media (max-width: 560px) {
+    .footer { padding-top: 60px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 38px; padding-bottom: 44px; }
+    .footer-logo-text { font-size: 26px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; padding: 22px 0 26px; }
+    .footer-legal { gap: 8px 22px; }
+  }
+
+  @media (hover: none) {
+    .magazine:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+
+  <!-- Шапка -->
+  <header class="header">
+    <div class="container">
+
+      <!-- Векторный логотип: буровая вышка + название -->
+      <a href="/" class="logo" aria-label="АРГОС — на главную">
+        <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- кронблок -->
+          <rect x="41" y="4" width="18" height="8" rx="2" fill="#0066FF"/>
+          <!-- ноги вышки -->
+          <path d="M45 12 L21 88 M55 12 L79 88" stroke="#0066FF" stroke-width="6" stroke-linecap="round"/>
+          <!-- раскосы -->
+          <path d="M37 40 H63 M30 62 H70" stroke="#0066FF" stroke-width="5" stroke-linecap="round"/>
+          <path d="M37 40 L68 62 M63 40 L32 62" stroke="#0099FF" stroke-width="3.5" stroke-linecap="round"/>
+          <!-- бур / труба вниз -->
+          <path d="M50 12 V88" stroke="#0099FF" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 9"/>
+          <!-- основание -->
+          <path d="M10 92 H90" stroke="#0A2540" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <span class="logo-text">АРГОС</span>
+      </a>
+
+      <input type="checkbox" id="menu" class="burger" aria-label="Открыть меню">
+      <label for="menu" class="burger-label" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#about">О компании</a>
+        <a href="#services">Направления</a>
+        <a href="#geography">География</a>
+        <a href="#careers">Вакансии</a>
+        <a href="#contacts">Контакты</a>
+        <a href="#contacts" class="btn btn-primary nav-cta"><span>Связаться</span></a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#contacts" class="btn btn-primary btn-sm"><span>Связаться</span></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Основной контент -->
+  <main class="hero-main">
+    <div class="container">
+      <span class="eyebrow"><i></i>Нефтесервис · Строительство</span>
+      <h1>Лидер <em>нефтесервисных</em> и строительных услуг</h1>
+      <p class="lead">
+        Полный спектр работ для нефтегазовой отрасли России: от бурения скважин
+        до строительства инфраструктуры с 1978 года.
+      </p>
+      <div class="cta">
+        <a href="#services" class="btn btn-primary">
+          <span>Наши направления</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#careers" class="btn btn-secondary">Вакансии</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Ключевые цифры -->
+  <section class="stats" aria-label="Ключевые показатели">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-value">11&nbsp;000+</div>
+          <div class="stat-label">Сотрудников в штате</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">1&nbsp;400+</div>
+          <div class="stat-label">Единиц спецтехники</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">4+4</div>
+          <div class="stat-label">Строительных и нефтесервисных филиала</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">С&nbsp;1978</div>
+          <div class="stat-label">Года в отрасли</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</section>
+
+<!-- ===== НАПРАВЛЕНИЯ ===== -->
+<section class="services" id="services">
+  <div class="container">
+
+    <!-- Заголовок секции -->
+    <div class="section-head">
+      <span class="badge"><i></i>Наши возможности</span>
+      <h2>Ключевые направления <em>холдинга</em></h2>
+      <p>
+        Единый подход к нефтесервису и строительству: от подготовки площадки и бурения
+        до защиты трубопроводов — всё под управлением одной команды.
+      </p>
+    </div>
+
+    <!-- Сетка карточек 2x2 -->
+    <div class="cards">
+
+      <!-- 1. Бурение и ремонт скважин -->
+      <article class="card">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="10" y="2" width="4" height="2.5" rx=".6"/>
+            <path d="M11 4.5 6 20M13 4.5 18 20"/>
+            <path d="M8.2 12h7.6M7 16h10M4 21h16"/>
+            <path d="M8.2 12 15.2 16M15.8 12 8.8 16"/>
+          </svg>
+        </div>
+        <h3>Бурение и ремонт скважин</h3>
+        <p>Строительство, капитальный и текущий ремонт скважин для нефтегазодобывающих компаний России.</p>
+        <ul class="tags" aria-label="Филиалы">
+          <li>ЧУРС</li>
+          <li>БУРЕНИЕ</li>
+          <li>ЛПУРС</li>
+        </ul>
+        <a href="#drilling" class="card-link" data-modal="drilling" aria-haspopup="dialog">Подробнее <span class="arrow">→</span></a>
+      </article>
+
+      <!-- 2. Строительство & Инфраструктура -->
+      <article class="card">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18"/>
+            <path d="M5 21V9l6-4v16"/>
+            <path d="M11 21V11h8v10"/>
+            <path d="M8 11v.01M8 15v.01M14 14.5h2M14 17.5h2"/>
+          </svg>
+        </div>
+        <h3>Строительство &amp; Инфраструктура</h3>
+        <p>Обустройство месторождений, трубопроводы, площадочные объекты и промышленная инфраструктура.</p>
+        <ul class="tags" aria-label="Филиалы">
+          <li>КЕДР</li>
+          <li>ПРОМЕТЕЙ</li>
+          <li>СТПС</li>
+          <li>ССТ</li>
+        </ul>
+        <a href="#construction" class="card-link" data-modal="construction" aria-haspopup="dialog">Подробнее <span class="arrow">→</span></a>
+      </article>
+
+      <!-- 3. Тампонаж и спецтехника -->
+      <article class="card">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 17V8h9v9"/>
+            <path d="M11 11h4.5l3.5 3.5V17H11"/>
+            <circle cx="6" cy="18" r="2"/>
+            <circle cx="16" cy="18" r="2"/>
+            <path d="M2 17h2M8 17h6"/>
+          </svg>
+        </div>
+        <h3>Тампонаж и спецтехника</h3>
+        <p>Тампонажные работы и парк специальной техники для сложных условий месторождений.</p>
+        <ul class="tags" aria-label="Филиал">
+          <li>СУМР</li>
+        </ul>
+        <a href="#cementing" class="card-link" data-modal="cementing" aria-haspopup="dialog">Подробнее <span class="arrow">→</span></a>
+      </article>
+
+      <!-- 4. Антикоррозийное покрытие труб -->
+      <article class="card">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/>
+            <path d="M8.5 12.5h7M8.5 9.5h7" opacity=".0"/>
+            <path d="m9 12 2.2 2.2L15.5 10"/>
+          </svg>
+        </div>
+        <h3>Антикоррозийное покрытие труб</h3>
+        <p>Заводское нанесение защитных покрытий, продлевающих срок службы трубопроводов.</p>
+        <ul class="tags" aria-label="Производство и технология">
+          <li>Завод «ЛАНКОР»</li>
+          <li>Технология BUTLER</li>
+        </ul>
+        <a href="#coating" class="card-link" data-modal="coating" aria-haspopup="dialog">Подробнее <span class="arrow">→</span></a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== ГЕОГРАФИЯ ===== -->
+<section class="geography" id="geography">
+  <div class="container">
+
+    <!-- Заголовок секции -->
+    <div class="section-head">
+      <span class="badge"><i></i>Масштаб присутствия</span>
+      <h2>География нашей <em>деятельности</em></h2>
+      <p>Регионы присутствия и опорные базы от Москвы до Ямала.</p>
+    </div>
+
+    <div class="geo-layout">
+
+      <!-- Вкладки регионов -->
+      <div class="geo-tabs" role="tablist" aria-label="Регионы присутствия" aria-orientation="vertical">
+
+        <button class="geo-tab" role="tab" id="geo-tab-khmao" aria-controls="geo-panel-khmao" aria-selected="true" type="button">
+          <span class="geo-pin" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 1 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.6"/></svg>
+          </span>
+          <span>
+            <span class="geo-tab-name">ХМАО-Югра</span>
+            <span class="geo-tab-meta">4 города · 7 филиалов</span>
+          </span>
+        </button>
+
+        <button class="geo-tab" role="tab" id="geo-tab-yanao" aria-controls="geo-panel-yanao" aria-selected="false" tabindex="-1" type="button">
+          <span class="geo-pin" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 1 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.6"/></svg>
+          </span>
+          <span>
+            <span class="geo-tab-name">ЯНАО</span>
+            <span class="geo-tab-meta">2 пункта · 3 филиала</span>
+          </span>
+        </button>
+
+        <button class="geo-tab" role="tab" id="geo-tab-komi" aria-controls="geo-panel-komi" aria-selected="false" tabindex="-1" type="button">
+          <span class="geo-pin" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 1 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.6"/></svg>
+          </span>
+          <span>
+            <span class="geo-tab-name">Республика Коми</span>
+            <span class="geo-tab-meta">1 филиал</span>
+          </span>
+        </button>
+
+        <button class="geo-tab" role="tab" id="geo-tab-perm" aria-controls="geo-panel-perm" aria-selected="false" tabindex="-1" type="button">
+          <span class="geo-pin" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 1 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.6"/></svg>
+          </span>
+          <span>
+            <span class="geo-tab-name">Пермский край</span>
+            <span class="geo-tab-meta">1 город · 1 филиал</span>
+          </span>
+        </button>
+
+        <button class="geo-tab" role="tab" id="geo-tab-hq" aria-controls="geo-panel-hq" aria-selected="false" tabindex="-1" type="button">
+          <span class="geo-pin" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l8-5.5L20 9v12"/><path d="M9 21v-6h6v6M3 21h18"/></svg>
+          </span>
+          <span>
+            <span class="geo-tab-name">Аппараты управления</span>
+            <span class="geo-tab-meta">Москва · Самара</span>
+          </span>
+        </button>
+      </div>
+
+      <!-- Панели регионов -->
+      <div class="geo-panels">
+
+        <div class="geo-panel" role="tabpanel" id="geo-panel-khmao" aria-labelledby="geo-tab-khmao">
+          <p class="geo-eyebrow">Регион присутствия</p>
+          <h3>ХМАО-Югра</h3>
+          <p class="geo-lead">Ключевой регион деятельности: здесь расположены базы большинства филиалов холдинга.</p>
+          <div class="geo-block">
+            <h4>Города и базы</h4>
+            <ul class="geo-places">
+              <li>Когалым</li><li>Лангепас</li><li>Покачи</li><li>Урай</li>
+            </ul>
+          </div>
+          <div class="geo-block">
+            <h4>Базы филиалов</h4>
+            <ul class="tags">
+              <li>ЧУРС</li><li>БУРЕНИЕ</li><li>СУМР</li><li>ЛПУРС</li><li>КЕДР</li><li>ПРОМЕТЕЙ</li><li>ЛАНКОР</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="geo-panel" role="tabpanel" id="geo-panel-yanao" aria-labelledby="geo-tab-yanao" hidden>
+          <p class="geo-eyebrow">Регион присутствия</p>
+          <h3>ЯНАО</h3>
+          <p class="geo-lead">Опорные базы на Ямале для работ на северных месторождениях.</p>
+          <div class="geo-block">
+            <h4>Города и базы</h4>
+            <ul class="geo-places">
+              <li>Новый Порт</li><li>Газ-Сале</li>
+            </ul>
+          </div>
+          <div class="geo-block">
+            <h4>Базы филиалов</h4>
+            <ul class="tags">
+              <li>КЕДР</li><li>ПРОМЕТЕЙ</li><li>СУМР</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="geo-panel" role="tabpanel" id="geo-panel-komi" aria-labelledby="geo-tab-komi" hidden>
+          <p class="geo-eyebrow">Регион присутствия</p>
+          <h3>Республика Коми</h3>
+          <p class="geo-lead">Присутствие в Республике Коми обеспечивает строительный филиал холдинга.</p>
+          <div class="geo-block">
+            <h4>Базы филиалов</h4>
+            <ul class="tags">
+              <li>СТПС</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="geo-panel" role="tabpanel" id="geo-panel-perm" aria-labelledby="geo-tab-perm" hidden>
+          <p class="geo-eyebrow">Регион присутствия</p>
+          <h3>Пермский край</h3>
+          <p class="geo-lead">База по ремонту и бурению скважин в Пермском крае.</p>
+          <div class="geo-block">
+            <h4>Города и базы</h4>
+            <ul class="geo-places">
+              <li>Чернушка</li>
+            </ul>
+          </div>
+          <div class="geo-block">
+            <h4>Базы филиалов</h4>
+            <ul class="tags">
+              <li>ЧУРС</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="geo-panel" role="tabpanel" id="geo-panel-hq" aria-labelledby="geo-tab-hq" hidden>
+          <p class="geo-eyebrow">Центры управления</p>
+          <h3>Аппараты управления</h3>
+          <p class="geo-lead">Управление холдингом и координация работы филиалов осуществляются из двух городов.</p>
+          <div class="geo-block">
+            <h4>Города</h4>
+            <ul class="geo-places">
+              <li>Москва</li><li>Самара</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Итоговая плашка -->
+    <div class="geo-summary" aria-label="География в цифрах">
+      <div>
+        <span class="geo-stat-value">5</span>
+        <span class="geo-stat-label">ключевых регионов присутствия</span>
+      </div>
+      <div>
+        <span class="geo-stat-value">9</span>
+        <span class="geo-stat-label">населённых пунктов с базами и офисами</span>
+      </div>
+      <ul class="geo-regions-list" aria-label="Ключевые регионы">
+        <li>ХМАО-Югра</li>
+        <li>ЯНАО</li>
+        <li>Республика Коми</li>
+        <li>Пермский край</li>
+        <li>Москва · Самара</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== КАРЬЕРА ===== -->
+<section class="careers" id="careers">
+  <div class="container">
+
+    <!-- Заголовок секции -->
+    <div class="section-head">
+      <span class="badge"><i></i>Работа в АРГОС</span>
+      <h2>Присоединяйтесь к нашей <em>команде</em></h2>
+      <p>
+        Стабильная работа в крупном холдинге: достойная оплата, вахтовый метод
+        и надёжная социальная защита сотрудников.
+      </p>
+    </div>
+
+    <div class="careers-layout">
+
+      <!-- Левая колонка: преимущества -->
+      <ul class="benefits">
+        <li class="benefit">
+          <div class="benefit-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="m9.5 14 2 2 3.5-4"/></svg>
+          </div>
+          <div>
+            <h3>Официальное трудоустройство и соцпакет</h3>
+            <p>Оформление по закону и социальные гарантии для вас и вашей семьи.</p>
+          </div>
+        </li>
+
+        <li class="benefit">
+          <div class="benefit-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v.01M18 14.5v.01"/></svg>
+          </div>
+          <div>
+            <h3>Достойная заработная плата и бонусы</h3>
+            <p>Стабильные выплаты и система поощрений за результат.</p>
+          </div>
+        </li>
+
+        <li class="benefit">
+          <div class="benefit-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg>
+          </div>
+          <div>
+            <h3>Вахтовый метод работы и комфортное проживание</h3>
+            <p>Понятный график вахт и обустроенные условия проживания.</p>
+          </div>
+        </li>
+
+        <li class="benefit">
+          <div class="benefit-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>
+          </div>
+          <div>
+            <h3>Современный парк спецтехники (1400+ единиц) и профессиональный рост</h3>
+            <p>Работа на современной технике и возможность развиваться внутри холдинга.</p>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Правая колонка: форма отклика -->
+      <div class="career-card" id="career-card">
+        <div class="form-wrap">
+          <h3>Быстрый отклик на вакансию</h3>
+          <p class="form-lead">Оставьте контакты, и мы свяжемся с вами для обсуждения вакансий.</p>
+
+          <form id="career-form" novalidate>
+            <div class="field">
+              <label for="cf-name">Ваше имя</label>
+              <input type="text" id="cf-name" name="name" placeholder="Иван Иванов" autocomplete="name" required>
+              <span class="field-error">Укажите ваше имя</span>
+            </div>
+
+            <div class="field">
+              <label for="cf-phone">Номер телефона</label>
+              <input type="tel" id="cf-phone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" inputmode="tel" required>
+              <span class="field-error">Введите номер телефона полностью</span>
+            </div>
+
+            <div class="field">
+              <label for="cf-profession">Желаемая специальность / Профессия</label>
+              <select id="cf-profession" name="profession" required>
+                <option value="" disabled selected>Выберите специальность</option>
+                <option value="drilling">Бурение</option>
+                <option value="workover">Ремонт скважин</option>
+                <option value="driver">Водитель / Машинист</option>
+                <option value="construction">Строительство</option>
+                <option value="other">Другое</option>
+              </select>
+              <span class="field-error">Выберите специальность</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit">
+              <span>Отправить резюме / Заявку</span>
+            </button>
+
+            <p class="form-consent">
+              Нажимая кнопку, вы соглашаетесь на обработку персональных данных
+              в соответствии с <a href="#privacy">политикой конфиденциальности</a>.
+            </p>
+          </form>
+        </div>
+
+        <!-- Сообщение после отправки -->
+        <div class="form-success" role="status" aria-live="polite">
+          <div class="success-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>
+          </div>
+          <h3>Спасибо за отклик!</h3>
+          <p>Мы получили вашу заявку и свяжемся с вами в ближайшее время.</p>
+          <button type="button" class="btn btn-secondary" id="career-reset">Отправить ещё одну заявку</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== ПОДВАЛ ===== -->
+<footer class="footer" id="contacts">
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <!-- Колонка 1: логотип и подпись -->
+      <div class="footer-about">
+        <a href="/" class="footer-logo" aria-label="АРГОС — на главную">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="41" y="4" width="18" height="8" rx="2" fill="#4DB8FF"/>
+            <path d="M45 12 L21 88 M55 12 L79 88" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+            <path d="M37 40 H63 M30 62 H70" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+            <path d="M37 40 L68 62 M63 40 L32 62" stroke="#4DB8FF" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M50 12 V88" stroke="#4DB8FF" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 9"/>
+            <path d="M10 92 H90" stroke="#4DB8FF" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+          <span class="footer-logo-text">АРГОС</span>
+        </a>
+        <p>Лидер нефтесервисных и строительных услуг с&nbsp;1978&nbsp;года</p>
+
+        <!-- TODO: подставьте реальную ссылку на сообщество ВКонтакте -->
+        <a href="#" class="footer-social" target="_blank" rel="noopener" aria-label="АРГОС во ВКонтакте">
+          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <rect width="32" height="32" rx="8" fill="#0077FF"/>
+            <text x="16" y="21" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">VK</text>
+          </svg>
+          <span>ВКонтакте</span>
+        </a>
+      </div>
+
+      <!-- Колонка 2: быстрая навигация -->
+      <nav aria-label="Навигация по сайту">
+        <h4>Навигация</h4>
+        <ul class="footer-links">
+          <li><a href="#about">О компании</a></li>
+          <li><a href="#services">Направления</a></li>
+          <li><a href="#geography">География</a></li>
+          <li><a href="#careers">Карьера / Вакансии</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <!-- Колонка 3: контакты головных офисов -->
+      <div>
+        <h4>Контакты</h4>
+        <address>
+          <ul class="contact-list">
+            <li>
+              <span class="contact-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 1 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              </span>
+              <span>
+                <span class="contact-label">Головной офис</span>
+                <span class="contact-value">г. Москва</span>
+              </span>
+            </li>
+            <li>
+              <span class="contact-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 1 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              </span>
+              <span>
+                <span class="contact-label">Головной офис</span>
+                <span class="contact-value">г. Самара</span>
+              </span>
+            </li>
+            <li>
+              <span class="contact-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 1 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              </span>
+              <span>
+                <span class="contact-label">Офис в регионе</span>
+                <span class="contact-value">г. Когалым</span>
+              </span>
+            </li>
+            <li>
+              <span class="contact-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+              </span>
+              <span>
+                <span class="contact-label">Телефон</span>
+                <!-- TODO: подставьте реальный номер телефона -->
+                <a href="tel:+70000000000" class="contact-value">+7 (000) 000-00-00</a>
+              </span>
+            </li>
+            <li>
+              <span class="contact-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg>
+              </span>
+              <span>
+                <span class="contact-label">E-mail</span>
+                <!-- TODO: подставьте реальный адрес электронной почты -->
+                <a href="mailto:info@example.com" class="contact-value">info@example.com</a>
+              </span>
+            </li>
+          </ul>
+        </address>
+      </div>
+
+      <!-- Колонка 4: корпоративный журнал -->
+      <div>
+        <h4>Корпоративное издание</h4>
+        <article class="magazine">
+          <div class="magazine-top">
+            <div class="magazine-cover" aria-hidden="true">
+              <span>Время<br>Аргос</span>
+              <span>№62</span>
+            </div>
+            <div>
+              <span class="magazine-tag">Новый выпуск</span>
+              <h5>Журнал «Время Аргос»</h5>
+            </div>
+          </div>
+          <!-- TODO: замените анонс на реальное содержание выпуска №62 -->
+          <p>Вышел свежий выпуск №62: новости холдинга, истории сотрудников и производственные итоги.</p>
+          <a href="#magazine" class="magazine-link">Читать журнал <span class="arrow">→</span></a>
+        </article>
+      </div>
+
+    </div>
+
+    <!-- Нижняя линия -->
+    <div class="footer-bottom">
+      <p class="footer-copy">© 1978–<span id="footer-year">2026</span> ООО «АРГОС». Все права защищены.</p>
+      <ul class="footer-legal">
+        <li><a href="#privacy">Политика конфиденциальности</a></li>
+        <li><a href="#sitemap">Карта сайта</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+
+<!-- Модальное окно -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+    <button type="button" class="modal-close" aria-label="Закрыть окно" data-close>✕</button>
+
+    <div class="modal-icon" id="modal-icon" aria-hidden="true"></div>
+    <h3 class="modal-title" id="modal-title"></h3>
+    <p class="modal-lead" id="modal-lead"></p>
+
+    <h4 class="modal-subtitle">Основные виды работ</h4>
+    <ul class="modal-works" id="modal-works"></ul>
+
+    <h4 class="modal-subtitle" id="modal-tags-title"></h4>
+    <ul class="tags" id="modal-tags"></ul>
+
+    <div class="modal-footer">
+      <a href="#contacts" class="modal-cta" id="modal-cta" data-close>
+        <span>Оставить заявку / Консультация</span>
+      </a>
+      <span class="modal-note">Ответим в рабочее время</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  // Содержимое модальных окон. Тексты — заготовки, замените на актуальные.
+  var DATA = {
+    drilling: {
+      title: 'Бурение и ремонт скважин',
+      lead: 'Комплексные услуги по строительству и поддержанию фонда скважин для нефтегазодобывающих компаний: от подготовки к бурению до возвращения скважины в эксплуатацию.',
+      works: [
+        'Строительство нефтяных и газовых скважин',
+        'Капитальный ремонт скважин',
+        'Текущий ремонт и подземное обслуживание',
+        'Работы по восстановлению и интенсификации добычи'
+      ],
+      tagsTitle: 'Филиалы направления',
+      tags: ['ЧУРС', 'БУРЕНИЕ', 'ЛПУРС']
+    },
+    construction: {
+      title: 'Строительство & Инфраструктура',
+      lead: 'Возведение объектов нефтегазового комплекса и сопутствующей инфраструктуры — от подготовки площадок до сдачи объекта в эксплуатацию.',
+      works: [
+        'Обустройство нефтяных и газовых месторождений',
+        'Строительство трубопроводов и площадочных объектов',
+        'Строительство дорог и объектов транспортной инфраструктуры',
+        'Монтаж оборудования и инженерных систем'
+      ],
+      tagsTitle: 'Филиалы направления',
+      tags: ['КЕДР', 'ПРОМЕТЕЙ', 'СТПС', 'ССТ']
+    },
+    cementing: {
+      title: 'Тампонаж и спецтехника',
+      lead: 'Тампонажные работы и применение специальной техники при строительстве и ремонте скважин, в том числе в сложных горно-геологических и климатических условиях.',
+      works: [
+        'Цементирование обсадных колонн',
+        'Ремонтно-изоляционные и тампонажные работы',
+        'Предоставление специальной техники для работ на месторождениях',
+        'Технологическое сопровождение операций'
+      ],
+      tagsTitle: 'Филиал направления',
+      tags: ['СУМР']
+    },
+    coating: {
+      title: 'Антикоррозийное покрытие труб',
+      lead: 'Заводское нанесение защитных покрытий на трубы, которое снижает риск коррозии и увеличивает срок службы трубопроводных систем.',
+      works: [
+        'Нанесение антикоррозийных покрытий на трубы',
+        'Подготовка поверхности и контроль качества',
+        'Работа по технологии BUTLER',
+        'Поставка труб с защитным покрытием для объектов строительства'
+      ],
+      tagsTitle: 'Производство и технология',
+      tags: ['Завод «ЛАНКОР»', 'Технология BUTLER']
+    }
+  };
+
+  var modal   = document.getElementById('modal');
+  var dialog  = modal.querySelector('.modal-dialog');
+  var elIcon  = document.getElementById('modal-icon');
+  var elTitle = document.getElementById('modal-title');
+  var elLead  = document.getElementById('modal-lead');
+  var elWorks = document.getElementById('modal-works');
+  var elTagsT = document.getElementById('modal-tags-title');
+  var elTags  = document.getElementById('modal-tags');
+  var lastTrigger = null;
+
+  function fillList(ul, items) {
+    ul.innerHTML = '';
+    items.forEach(function (text) {
+      var li = document.createElement('li');
+      li.textContent = text;
+      ul.appendChild(li);
+    });
+  }
+
+  function openModal(key, trigger) {
+    var d = DATA[key];
+    if (!d) return;
+    lastTrigger = trigger;
+
+    // иконку берём из соответствующей карточки
+    var card = trigger.closest('.card');
+    var icon = card && card.querySelector('.card-icon svg');
+    elIcon.innerHTML = icon ? icon.outerHTML : '';
+
+    elTitle.textContent = d.title;
+    elLead.textContent  = d.lead;
+    elTagsT.textContent = d.tagsTitle;
+    fillList(elWorks, d.works);
+    fillList(elTags, d.tags);
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    dialog.scrollTop = 0;
+    setTimeout(function () { dialog.focus(); }, 50);
+  }
+
+  function closeModal() {
+    if (!modal.classList.contains('is-open')) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    if (lastTrigger) lastTrigger.focus();
+  }
+
+  // Открытие по клику на «Подробнее →»
+  document.querySelectorAll('[data-modal]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      openModal(link.getAttribute('data-modal'), link);
+    });
+  });
+
+  // Закрытие: крестик, кнопка-ссылка, клик по затемнённому фону
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal || e.target.closest('[data-close]')) {
+      var isCta = e.target.closest('#modal-cta');
+      if (!isCta) e.preventDefault();
+      // переход к контактам выполняется стандартной якорной ссылкой
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+      if (!isCta && lastTrigger) lastTrigger.focus();
+    }
+  });
+
+  // Закрытие по Esc + удержание фокуса внутри окна
+  document.addEventListener('keydown', function (e) {
+    if (!modal.classList.contains('is-open')) return;
+    if (e.key === 'Escape') { closeModal(); return; }
+    if (e.key === 'Tab') {
+      var f = dialog.querySelectorAll('a[href], button:not([disabled])');
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && (document.activeElement === first || document.activeElement === dialog)) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    }
+  });
+})();
+</script>
+
+<script>
+(function () {
+  // Вкладки регионов
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.geo-tab'));
+  if (!tabs.length) return;
+
+  function activate(tab, setFocus) {
+    tabs.forEach(function (t) {
+      var on = (t === tab);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      var panel = document.getElementById(t.getAttribute('aria-controls'));
+      if (panel) panel.hidden = !on;
+    });
+    if (setFocus) tab.focus();
+    // на мобильных прокручиваем ленту так, чтобы активная вкладка была видна
+    if (tab.scrollIntoView && window.matchMedia('(max-width: 900px)').matches) {
+      tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }
+
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () { activate(tab, false); });
+    tab.addEventListener('keydown', function (e) {
+      var next = null;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+      if (e.key === 'ArrowUp'   || e.key === 'ArrowLeft')  next = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (e.key === 'Home') next = tabs[0];
+      if (e.key === 'End')  next = tabs[tabs.length - 1];
+      if (next) { e.preventDefault(); activate(next, true); }
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  // Форма отклика на вакансию
+  var card  = document.getElementById('career-card');
+  var form  = document.getElementById('career-form');
+  if (!form) return;
+
+  var nameEl  = document.getElementById('cf-name');
+  var phoneEl = document.getElementById('cf-phone');
+  var profEl  = document.getElementById('cf-profession');
+  var btn     = form.querySelector('.form-submit');
+  var reset   = document.getElementById('career-reset');
+
+  function setError(input, hasError) {
+    var field = input.closest('.field');
+    field.classList.toggle('has-error', hasError);
+    input.setAttribute('aria-invalid', hasError ? 'true' : 'false');
+  }
+
+  // Маска телефона: +7 (999) 123-45-67
+  function formatPhone(value) {
+    var d = value.replace(/\D/g, '');
+    if (d.charAt(0) === '7' || d.charAt(0) === '8') d = d.slice(1);
+    d = d.slice(0, 10);
+    if (!d.length) return '';
+    var out = '+7 (' + d.slice(0, 3);
+    if (d.length >= 3) out += ')';
+    if (d.length > 3) out += ' ' + d.slice(3, 6);
+    if (d.length > 6) out += '-' + d.slice(6, 8);
+    if (d.length > 8) out += '-' + d.slice(8, 10);
+    return out;
+  }
+  phoneEl.addEventListener('input', function () {
+    phoneEl.value = formatPhone(phoneEl.value);
+    setError(phoneEl, false);
+  });
+  phoneEl.addEventListener('focus', function () {
+    if (!phoneEl.value) phoneEl.value = '+7 (';
+  });
+  phoneEl.addEventListener('blur', function () {
+    if (phoneEl.value === '+7 (') phoneEl.value = '';
+  });
+  nameEl.addEventListener('input', function () { setError(nameEl, false); });
+  profEl.addEventListener('change', function () { setError(profEl, false); });
+
+  function validate() {
+    var ok = true, first = null;
+    var nameOk  = nameEl.value.trim().length >= 2;
+    var phoneOk = phoneEl.value.replace(/\D/g, '').length === 11;
+    var profOk  = !!profEl.value;
+    setError(nameEl,  !nameOk);
+    setError(phoneEl, !phoneOk);
+    setError(profEl,  !profOk);
+    if (!nameOk)  { ok = false; first = first || nameEl; }
+    if (!phoneOk) { ok = false; first = first || phoneEl; }
+    if (!profOk)  { ok = false; first = first || profEl; }
+    if (first) first.focus();
+    return ok;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!validate()) return;
+
+    var payload = {
+      name: nameEl.value.trim(),
+      phone: phoneEl.value,
+      profession: profEl.value,
+      professionLabel: profEl.options[profEl.selectedIndex].text
+    };
+
+    btn.disabled = true;
+    btn.querySelector('span').textContent = 'Отправляем…';
+
+    // TODO: здесь подключается реальная отправка, например:
+    // fetch('/api/vacancy', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload) })
+    //   .then(function (r) { if (!r.ok) throw new Error(); showSuccess(); })
+    //   .catch(function () { /* показать ошибку */ });
+    // Сейчас — имитация успешной отправки (данные никуда не уходят).
+    setTimeout(function () { showSuccess(payload); }, 600);
+  });
+
+  function showSuccess() {
+    card.classList.add('is-sent');
+    var h = card.querySelector('.form-success h3');
+    if (h) { h.setAttribute('tabindex', '-1'); h.focus(); }
+  }
+
+  reset.addEventListener('click', function () {
+    form.reset();
+    [nameEl, phoneEl, profEl].forEach(function (el) { setError(el, false); });
+    btn.disabled = false;
+    btn.querySelector('span').textContent = 'Отправить резюме / Заявку';
+    card.classList.remove('is-sent');
+    nameEl.focus();
+  });
+})();
+</script>
+
+<script>
+(function () {
+  // Автоматическое обновление года в копирайте
+  var y = document.getElementById('footer-year');
+  if (y) y.textContent = new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>
